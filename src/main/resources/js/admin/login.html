@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomat Sexi - Admin kirish</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="admin-body">
+<div class="admin-login-container">
+    <div class="admin-login-card">
+        <div class="admin-login-header">
+            <div class="admin-logo">
+                <i class="fas fa-shopping-bag"></i>
+            </div>
+            <h1>Admin panelga kirish</h1>
+            <p>Tomat Sexi admin paneliga kirish uchun ma'lumotlaringizni kiriting</p>
+        </div>
+        <form id="admin-login-form">
+            <div id="login-error" class="error-message"></div>
+            <div class="form-group">
+                <label for="username">Foydalanuvchi nomi</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Parol</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block" id="login-button">Kirish</button>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="/js/admin/login.js"></script>
+<script src="/js/request.js"></script>
+</body>
+</html>

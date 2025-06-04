@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomat Sexi - Sozlamalar</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/admin-extensions.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="admin-body">
+<div class="admin-container">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" id="admin-sidebar">
+        <div class="sidebar-header">
+            <a href="dashboard.html" class="admin-logo">
+                <i class="fas fa-shopping-bag"></i>
+                <span>Tomat Sexi</span>
+            </a>
+            <button class="sidebar-close" id="sidebar-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Boshqaruv paneli</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="orders.html">
+                        <i class="fas fa-box"></i>
+                        <span>Buyurtmalar</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-products.html">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span>Mahsulotlar</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="customers.html">
+                        <i class="fas fa-users"></i>
+                        <span>Mijozlar</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="settings.html" class="active">
+                        <i class="fas fa-cog"></i>
+                        <span>Sozlamalar</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <button id="logout-button" class="btn btn-outline btn-block" onclick="logOut()">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Chiqish</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+        <!-- Header -->
+        <header class="admin-header">
+            <button class="sidebar-toggle" id="sidebar-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="admin-header-title">
+                <h1>Sozlamalar</h1>
+            </div>
+            <div class="admin-header-actions">
+                <div class="notification-bell">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </div>
+                <button id="header-logout-button" class="btn btn-sm btn-outline" onclick="logOut()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Chiqish</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Settings Content -->
+        <div class="admin-content">
+            <!-- General Settings -->
+            <div class="admin-card">
+                <div class="admin-card-header">
+                    <h2><i class="fas fa-store"></i> Do'kon ma'lumotlari</h2>
+                </div>
+                <div class="admin-card-body">
+                    <form id="store-settings-form">
+                        <div class="form-group">
+                            <label for="store-name">Do'kon nomi</label>
+                            <input type="text" id="store-name" value="Tomat Sexi">
+                        </div>
+                        <div class="form-group">
+                            <label for="store-description">Qisqa tavsif</label>
+                            <textarea id="store-description" rows="3">Sifatli tomat mahsulotlari ishlab chiqaruvchisi</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="store-address">Manzil</label>
+                            <input type="text" id="store-address" value="Namuna ko'chasi, 123-uy">
+                        </div>
+                        <div class="form-group">
+                            <label for="store-phone">Telefon</label>
+                            <input type="text" id="store-phone" value="+998 90 123 45 67">
+                        </div>
+                        <div class="form-group">
+                            <label for="store-email">Email</label>
+                            <input type="email" id="store-email" value="info@tomatsexi.uz">
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Saqlash</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Telegram Bot Settings -->
+            <div class="admin-card">
+                <div class="admin-card-header">
+                    <h2><i class="fab fa-telegram"></i> Telegram bot sozlamalari</h2>
+                </div>
+                <div class="admin-card-body">
+                    <form id="telegram-settings-form">
+                        <div class="form-group">
+                            <label for="bot-username">Bot foydalanuvchi nomi</label>
+                            <input type="text" id="bot-username" value="your_bot_username">
+                        </div>
+                        <div class="form-group">
+                            <label for="bot-token">Bot tokeni</label>
+                            <input type="text" id="bot-token" value="1234567890:ABCDEFGHIJKLMNOPQRSTUVWXYZ">
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Saqlash</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Admin Account Settings -->
+            <div class="admin-card">
+                <div class="admin-card-header">
+                    <h2><i class="fas fa-user-shield"></i> Admin hisob sozlamalari</h2>
+                </div>
+                <div class="admin-card-body">
+                    <form id="admin-settings-form">
+                        <div class="form-group">
+                            <label for="admin-username">Foydalanuvchi nomi</label>
+                            <input type="text" id="admin-username" value="admin">
+                        </div>
+                        <div class="form-group">
+                            <label for="admin-current-password">Joriy parol</label>
+                            <input type="password" id="admin-current-password">
+                        </div>
+                        <div class="form-group">
+                            <label for="admin-new-password">Yangi parol</label>
+                            <input type="password" id="admin-new-password">
+                        </div>
+                        <div class="form-group">
+                            <label for="admin-confirm-password">Yangi parolni tasdiqlang</label>
+                            <input type="password" id="admin-confirm-password">
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Saqlash</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="/js/admin/auth.js"></script>
+<script src="/js/admin/settings.js"></script>
+<script>
+    function logOut() {
+        console.log("Oldin token:", localStorage.getItem('token'));
+        localStorage.removeItem('token');
+        console.log("Keyin token:", localStorage.getItem('token'));
+
+        window.location.href = "login.html";
+    }
+</script>
+</body>
+</html>

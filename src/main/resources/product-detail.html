@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Totli tomat Sexi - Mahsulot tafsilotlari</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<!-- Header -->
+<header class="header">
+    <div class="container">
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <i class="fas fa-shopping-bag"></i>
+                <span>Totli tomat Sexi</span>
+            </a>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Bosh sahifa</a></li>
+                    <li><a href="categories.html">Kategoriyalar</a></li>
+                    <li><a href="products.html">Mahsulotlar</a></li>
+                    <li><a href="about.html">Biz haqimizda</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="https://t.me/your_bot_username" target="_blank" class="btn btn-outline">Buyurtma berish</a>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Product Detail -->
+<div class="page-content">
+    <div class="container">
+        <a href="products.html" class="back-link">
+            <i class="fas fa-arrow-left"></i>
+            Mahsulotlarga qaytish
+        </a>
+
+        <div class="product-detail" id="product-detail">
+            <!-- Product details will be loaded here via JavaScript -->
+            <div class="loading">Yuklanmoqda...</div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Totli tomat Sexi</h3>
+                <p>Sifatli tomat mahsulotlari ishlab chiqaruvchisi</p>
+                <p class="copyright">© <span id="current-year"></span> Tomat Sexi. Barcha huquqlar himoyalangan.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Aloqa</h3>
+                <p>Manzil: Namuna ko'chasi, 123-uy</p>
+                <p>Telefon: +998 90 123 45 67</p>
+                <p>Email: info@tomatsexi.uz</p>
+            </div>
+            <div class="footer-col">
+                <h3>Ijtimoiy tarmoqlar</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-telegram"></i> Telegram</a>
+                    <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/request.js"></script>
+<script src="js/product-detail.js"></script>
+</body>
+</html>

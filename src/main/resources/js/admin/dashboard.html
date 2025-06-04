@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomat Sexi - Admin boshqaruv paneli</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="admin-body">
+<div class="admin-container">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" id="admin-sidebar">
+        <div class="sidebar-header">
+            <a href="dashboard.html" class="admin-logo">
+                <i class="fas fa-shopping-bag"></i>
+                <span>Tomat Sexi</span>
+            </a>
+            <button class="sidebar-close" id="sidebar-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="dashboard.html" class="active">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Boshqaruv paneli</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="orders.html">
+                        <i class="fas fa-box"></i>
+                        <span>Buyurtmalar</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-products.html">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span>Mahsulotlar</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="customers.html">
+                        <i class="fas fa-users"></i>
+                        <span>Mijozlar</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="settings.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Sozlamalar</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <button id="logout-button" class="btn btn-outline btn-block" onclick="logOut()">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Chiqish</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+        <!-- Header -->
+        <header class="admin-header">
+            <button class="sidebar-toggle" id="sidebar-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="admin-header-title">
+                <h1>Boshqaruv paneli</h1>
+            </div>
+            <div class="admin-header-actions">
+                <div class="notification-bell">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </div>
+                <button id="logout" class="btn btn-sm btn-outline" onclick="logOut()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Chiqish</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <div class="admin-content">
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-card-header">
+                        <h3>Jami buyurtmalar</h3>
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <div class="stat-card-body">
+                        <div class="stat-value">125</div>
+                        <p class="stat-change positive">+12% o'tgan oyga nisbatan</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-header">
+                        <h3>Mijozlar</h3>
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-card-body">
+                        <div class="stat-value">84</div>
+                        <p class="stat-change positive">+5% o'tgan oyga nisbatan</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-header">
+                        <h3>Mahsulotlar</h3>
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <div class="stat-card-body">
+                        <div class="stat-value">32</div>
+                        <p class="stat-change">+3 yangi mahsulot</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-header">
+                        <h3>Daromad</h3>
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="stat-card-body">
+                        <div class="stat-value">4,250,000 so'm</div>
+                        <p class="stat-change positive">+18% o'tgan oyga nisbatan</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sales Chart -->
+            <div class="admin-card">
+                <div class="admin-card-header">
+                    <h2><i class="fas fa-chart-bar"></i> Sotuvlar statistikasi</h2>
+                </div>
+                <div class="admin-card-body">
+                    <div class="chart-container">
+                        <p class="chart-placeholder">Bu yerda sotuvlar grafigi bo'ladi</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Orders -->
+            <div class="admin-card">
+                <div class="admin-card-header">
+                    <h2><i class="fas fa-box"></i> So'nggi buyurtmalar</h2>
+                </div>
+                <div class="admin-card-body">
+                    <div class="table-responsive">
+                        <table class="admin-table" id="recent-orders-table">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Mijoz</th>
+                                <th>Sana</th>
+                                <th>Status</th>
+                                <th>Summa</th>
+                                <th>Amallar</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <!-- Orders will be loaded here via JavaScript -->
+                            <tr>
+                                <td colspan="6" class="loading-cell">Yuklanmoqda...</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- Order Details Modal -->
+<div class="modal" id="order-details-modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Buyurtma #<span id="modal-order-id"></span> ma'lumotlari</h2>
+            <button class="modal-close" id="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body" id="order-details-content">
+            <!-- Order details will be loaded here via JavaScript -->
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="/js/admin/auth.js"></script>
+<script src="/js/admin/dashboard.js"></script>
+<script>
+    function logOut() {
+        console.log("Oldin token:", localStorage.getItem('token'));
+        localStorage.removeItem('token');
+        console.log("Keyin token:", localStorage.getItem('token'));
+
+        window.location.href = "login.html";
+    }
+</script>
+</body>
+</html>

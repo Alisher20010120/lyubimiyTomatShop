@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomat Sexi - Mijozlar</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/admin-extensions.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="admin-body">
+<div class="admin-container">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" id="admin-sidebar">
+        <div class="sidebar-header">
+            <a href="dashboard.html" class="admin-logo">
+                <i class="fas fa-shopping-bag"></i>
+                <span>Tomat Sexi</span>
+            </a>
+            <button class="sidebar-close" id="sidebar-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Boshqaruv paneli</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="orders.html">
+                        <i class="fas fa-box"></i>
+                        <span>Buyurtmalar</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-products.html">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span>Mahsulotlar</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="customers.html" class="active">
+                        <i class="fas fa-users"></i>
+                        <span>Mijozlar</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="settings.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Sozlamalar</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <button id="logout-button" class="btn btn-outline btn-block" onclick="logOut()">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Chiqish</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+        <!-- Header -->
+        <header class="admin-header">
+            <button class="sidebar-toggle" id="sidebar-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="admin-header-title">
+                <h1>Mijozlar</h1>
+            </div>
+            <div class="admin-header-actions">
+                <div class="notification-bell">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </div>
+                <button id="header-logout-button" class="btn btn-sm btn-outline" onclick="logOut()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Chiqish</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Customers Content -->
+        <div class="admin-content">
+            <!-- Filters -->
+            <div class="filters-container">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="customer-search" placeholder="Mijoz nomi yoki Telegram username bo'yicha qidirish">
+                </div>
+            </div>
+
+            <!-- Customers Table -->
+            <div class="admin-card">
+                <div class="admin-card-header">
+                    <h2><i class="fas fa-users"></i> Mijozlar ro'yxati</h2>
+                </div>
+                <div class="admin-card-body">
+                    <div class="table-responsive">
+                        <table class="admin-table" id="customers-table">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Mijoz</th>
+                                <th>Telegram</th>
+                                <th>Telefon</th>
+                                <th>Buyurtmalar soni</th>
+                                <th>Jami xarid</th>
+                                <th>Amallar</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <!-- Customers will be loaded here via JavaScript -->
+                            <tr>
+                                <td colspan="7" class="loading-cell">Yuklanmoqda...</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- Customer Details Modal -->
+<div class="modal" id="customer-details-modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Mijoz ma'lumotlari</h2>
+            <button class="modal-close" id="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body" id="customer-details-content">
+            <!-- Customer details will be loaded here via JavaScript -->
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="/js/admin/auth.js"></script>
+<script src="/js/admin/customers.js"></script>
+<script >
+    function logOut() {
+        console.log("Oldin token:", localStorage.getItem('token'));
+        localStorage.removeItem('token');
+        console.log("Keyin token:", localStorage.getItem('token'));
+
+        window.location.href = "login.html";
+    }
+</script>
+</body>
+</html>
